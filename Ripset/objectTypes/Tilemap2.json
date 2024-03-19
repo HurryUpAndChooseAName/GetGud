@@ -1,0 +1,145 @@
+{
+	"name": "Tilemap2",
+	"plugin-id": "Tilemap",
+	"sid": 715075302472038,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 123631195201872
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 768,
+		"height": 768,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7749785,
+		"useCollisionPoly": true,
+		"tag": ""
+	},
+	"tile-collision-polys": {
+		"3": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					0,
+					1,
+					0.595052083333333,
+					0,
+					0.5924479166666665
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"4": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					0,
+					1,
+					0.5950520833333327,
+					0,
+					0.5950520833333331
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"5": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					0,
+					1,
+					0.5924479166666665,
+					0,
+					0.592447916666667
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"10": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					0,
+					1,
+					0.5937499999999996,
+					0,
+					0.5924479166666666
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"11": {
+			"collisionPoly": {
+				"points": [
+					1,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"16": {
+			"collisionPoly": {
+				"points": [
+					0.4687093098958334,
+					0,
+					1,
+					0,
+					1,
+					0.5937500000000001,
+					0.46830240885416646,
+					0.595458984375
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"22": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					0.5299479166666667,
+					0,
+					0.532552083333333,
+					0.5911458333333335,
+					0,
+					0.5937500000000004
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"23": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		}
+	}
+}
