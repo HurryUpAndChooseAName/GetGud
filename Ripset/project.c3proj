@@ -105,7 +105,8 @@
 			"Particles",
 			"Particles2",
 			"GroundBlock",
-			"MossBG"
+			"MossBG",
+			"Particles3"
 		],
 		"subfolders": []
 	},
