@@ -50,6 +50,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "MoveTo",
+			"name": "Move To",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Platform",
 			"name": "Platform",
 			"author": "Scirra",
@@ -97,7 +104,8 @@
 			"Tilemap3",
 			"Particles",
 			"Particles2",
-			"GroundBlock"
+			"GroundBlock",
+			"MossBG"
 		],
 		"subfolders": []
 	},

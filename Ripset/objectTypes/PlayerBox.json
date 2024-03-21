@@ -31,6 +31,11 @@
 			"behaviorId": "Platform",
 			"name": "Platform",
 			"sid": 194265266148985
+		},
+		{
+			"behaviorId": "MoveTo",
+			"name": "MoveTo",
+			"sid": 600374940869015
 		}
 	],
 	"effectTypes": [],
