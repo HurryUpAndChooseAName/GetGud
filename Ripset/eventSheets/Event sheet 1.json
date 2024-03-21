@@ -439,9 +439,9 @@
 								{
 									"id": "set-y",
 									"objectClass": "PlayerBox",
-									"sid": 827303175924880,
+									"sid": 288431297015041,
 									"parameters": {
-										"y": "Self.Y+10"
+										"y": "Self.Y-5"
 									}
 								},
 								{
@@ -510,9 +510,9 @@
 								{
 									"id": "set-y",
 									"objectClass": "PlayerBox",
-									"sid": 107128166961811,
+									"sid": 579511643608022,
 									"parameters": {
-										"y": "Self.Y+10"
+										"y": "Self.Y-5"
 									}
 								},
 								{
@@ -693,18 +693,6 @@
 				}
 			],
 			"sid": 982888962459700
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "every-tick",
-					"objectClass": "System",
-					"sid": 490774653557648
-				}
-			],
-			"actions": [],
-			"sid": 594909585421205
 		}
 	],
 	"sid": 491438502218520
