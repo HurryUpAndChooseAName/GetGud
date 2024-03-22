@@ -325,6 +325,15 @@
 														"animation": "\"walking\"",
 														"from": "beginning"
 													}
+												},
+												{
+													"id": "set-max-speed",
+													"objectClass": "PlayerBox",
+													"sid": 901972806937572,
+													"behaviorType": "Platform",
+													"parameters": {
+														"max-speed": "330"
+													}
 												}
 											],
 											"sid": 552802015487726
@@ -381,6 +390,12 @@
 									"parameters": {
 										"key": 16
 									}
+								},
+								{
+									"id": "is-on-floor",
+									"objectClass": "PlayerBox",
+									"sid": 494592624850531,
+									"behaviorType": "Platform"
 								}
 							],
 							"actions": [
@@ -397,7 +412,19 @@
 							"sid": 817144570607759
 						}
 					],
-					"sid": 350809902370702
+					"sid": 350809902370702,
+					"text-color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"background-color": [
+						0.4392156862745098,
+						0,
+						0,
+						1
+					]
 				},
 				{
 					"eventType": "group",
@@ -625,10 +652,34 @@
 							"sid": 700104791050898
 						}
 					],
-					"sid": 438027297195403
+					"sid": 438027297195403,
+					"text-color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"background-color": [
+						0.4392156862745098,
+						0,
+						0,
+						1
+					]
 				}
 			],
-			"sid": 997692790816071
+			"sid": 997692790816071,
+			"text-color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"background-color": [
+				0.4392156862745098,
+				0,
+				0,
+				1
+			]
 		},
 		{
 			"eventType": "block",
