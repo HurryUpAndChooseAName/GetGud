@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 38400,
+	"savedWithRelease": 38500,
 	"name": "Ripset",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -101,7 +101,6 @@
 			"Keyboard",
 			"Mouse",
 			"PlayerBox",
-			"Tilemap3",
 			"Particles",
 			"Particles2",
 			"GroundBlock",
@@ -110,7 +109,8 @@
 			"Particles4",
 			"FireFlies",
 			"Sprite",
-			"Sprite2"
+			"Sprite2",
+			"Particles5"
 		],
 		"subfolders": []
 	},

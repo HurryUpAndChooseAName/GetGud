@@ -12,6 +12,56 @@
 			"sid": 591550894601060
 		},
 		{
+			"eventType": "variable",
+			"name": "UPorDOWN",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 500130335988954
+		},
+		{
+			"eventType": "variable",
+			"name": "CooldownTimer",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 514481908745986
+		},
+		{
+			"eventType": "variable",
+			"name": "IsWallLeft",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 400971089529539
+		},
+		{
+			"eventType": "variable",
+			"name": "Timer",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 622519230647295
+		},
+		{
+			"eventType": "variable",
+			"name": "Jump",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 636225687499405
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Player",
@@ -25,6 +75,92 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-jump",
+									"objectClass": "PlayerBox",
+									"sid": 409108144887464,
+									"behaviorType": "Platform"
+								}
+							],
+							"actions": [
+								{
+									"id": "toggle-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 833912568890188,
+									"parameters": {
+										"variable": "Jump"
+									}
+								}
+							],
+							"sid": 914050648487991
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 757870975141153,
+									"parameters": {
+										"key": 32
+									}
+								},
+								{
+									"id": "is-on-floor",
+									"objectClass": "PlayerBox",
+									"sid": 607918591806666,
+									"behaviorType": "Platform",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "PlayerBox",
+									"sid": 131616345835590,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "330"
+									}
+								}
+							],
+							"sid": 206235850948693
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-floor",
+									"objectClass": "PlayerBox",
+									"sid": 123236339534465,
+									"behaviorType": "Platform"
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 944184604364576,
+									"parameters": {
+										"key": 16
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "PlayerBox",
+									"sid": 491753692407436,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "330"
+									}
+								}
+							],
+							"sid": 586221459888964
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -68,6 +204,100 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "on-created",
+									"objectClass": "Particles3",
+									"sid": 451597750305180
+								}
+							],
+							"actions": [
+								{
+									"id": "set-rate",
+									"objectClass": "Particles3",
+									"sid": 535078513022537,
+									"parameters": {
+										"rate": "0"
+									}
+								},
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "Particles3",
+									"sid": 463098054079264,
+									"parameters": {
+										"object": "PlayerBox",
+										"image-point-optional": "0"
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "PlayerBox",
+									"sid": 904161952536721,
+									"parameters": {
+										"child": "Particles3",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": false,
+										"transform-h": false,
+										"transform-a": false,
+										"transform-o": false,
+										"transform-z-elevation": false,
+										"transform-visibility": false,
+										"destroy-with-parent": true
+									}
+								}
+							],
+							"sid": 701231946335223
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Particles5",
+									"sid": 195140051143985
+								}
+							],
+							"actions": [
+								{
+									"id": "set-rate",
+									"objectClass": "Particles5",
+									"sid": 992336826313055,
+									"parameters": {
+										"rate": "0"
+									}
+								},
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "Particles5",
+									"sid": 681298479393000,
+									"parameters": {
+										"object": "PlayerBox",
+										"image-point-optional": "0"
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "PlayerBox",
+									"sid": 303899085913121,
+									"parameters": {
+										"child": "Particles5",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": false,
+										"transform-h": false,
+										"transform-a": false,
+										"transform-o": false,
+										"transform-z-elevation": false,
+										"transform-visibility": false,
+										"destroy-with-parent": true
+									}
+								}
+							],
+							"sid": 753084578115199
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "key-is-down",
 									"objectClass": "Keyboard",
 									"sid": 491664392197007,
@@ -104,12 +334,12 @@
 									}
 								},
 								{
-									"id": "set-boolean-instvar",
+									"id": "set-instvar-value",
 									"objectClass": "PlayerBox",
-									"sid": 439871593778396,
+									"sid": 755364051315060,
 									"parameters": {
 										"instance-variable": "FacingRight",
-										"value": "false"
+										"value": "1"
 									}
 								}
 							],
@@ -155,12 +385,12 @@
 									}
 								},
 								{
-									"id": "set-boolean-instvar",
+									"id": "set-instvar-value",
 									"objectClass": "PlayerBox",
-									"sid": 285378553361062,
+									"sid": 522291766631173,
 									"parameters": {
 										"instance-variable": "FacingRight",
-										"value": "true"
+										"value": "2"
 									}
 								}
 							],
@@ -437,71 +667,155 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-click",
-									"objectClass": "Mouse",
-									"sid": 682573773312255,
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 842025984903919,
 									"parameters": {
-										"mouse-button": "left",
-										"click-type": "clicked"
-									}
-								},
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "PlayerBox",
-									"sid": 194271238860388,
-									"parameters": {
-										"instance-variable": "FacingRight"
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 454350252963997,
-									"parameters": {
-										"variable": "TouchinDaGrass"
+										"key": 87
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-y",
-									"objectClass": "PlayerBox",
-									"sid": 288431297015041,
-									"parameters": {
-										"y": "Self.Y-5"
-									}
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "PlayerBox",
-									"sid": 940403523501905,
-									"behaviorType": "Platform",
-									"parameters": {
-										"state": "disabled"
-									}
-								},
-								{
-									"id": "move-to-position",
-									"objectClass": "PlayerBox",
-									"sid": 106881210809438,
-									"behaviorType": "MoveTo",
-									"parameters": {
-										"x": "Self.X+350",
-										"y": "Self.Y",
-										"mode": "direct"
-									}
-								},
-								{
-									"id": "set-boolean-eventvar",
+									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 929655109988339,
+									"sid": 290618283219276,
 									"parameters": {
-										"variable": "TouchinDaGrass",
-										"value": "false"
+										"variable": "UPorDOWN",
+										"value": "1"
 									}
 								}
 							],
-							"sid": 502606216708941
+							"sid": 437561180895361
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 533128920195369,
+									"parameters": {
+										"key": 83
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 243116692327877,
+									"parameters": {
+										"variable": "UPorDOWN",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 150147612112453
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-released",
+									"objectClass": "Keyboard",
+									"sid": 754287481686147,
+									"parameters": {
+										"key": 87
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 167355939912695,
+									"parameters": {
+										"variable": "UPorDOWN",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 818171027363653
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-released",
+									"objectClass": "Keyboard",
+									"sid": 365538834958858,
+									"parameters": {
+										"key": 83
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 231035718750737,
+									"parameters": {
+										"variable": "UPorDOWN",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 246894708715029
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-released",
+									"objectClass": "Keyboard",
+									"sid": 771491176766873,
+									"parameters": {
+										"key": 65
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "PlayerBox",
+									"sid": 868622549054028,
+									"parameters": {
+										"instance-variable": "FacingRight",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 314761488479929
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-released",
+									"objectClass": "Keyboard",
+									"sid": 436838857368019,
+									"parameters": {
+										"key": 68
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "PlayerBox",
+									"sid": 640125094254968,
+									"parameters": {
+										"instance-variable": "FacingRight",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 219695536681889
+						},
+						{
+							"eventType": "comment",
+							"text": "Right"
 						},
 						{
 							"eventType": "block",
@@ -509,7 +823,7 @@
 								{
 									"id": "on-click",
 									"objectClass": "Mouse",
-									"sid": 507944534415697,
+									"sid": 962200452382733,
 									"parameters": {
 										"mouse-button": "left",
 										"click-type": "clicked"
@@ -518,26 +832,35 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 955927024737087,
+									"sid": 242240021085587,
 									"parameters": {
 										"variable": "TouchinDaGrass"
 									}
 								},
 								{
-									"id": "is-boolean-instance-variable-set",
+									"id": "compare-instance-variable",
 									"objectClass": "PlayerBox",
-									"sid": 590513081280221,
+									"sid": 942656849337203,
 									"parameters": {
-										"instance-variable": "FacingRight"
-									},
-									"isInverted": true
+										"instance-variable": "FacingRight",
+										"comparison": 0,
+										"value": "1"
+									}
 								}
 							],
 							"actions": [
 								{
+									"id": "set-rate",
+									"objectClass": "Particles5",
+									"sid": 151007672981762,
+									"parameters": {
+										"rate": "20"
+									}
+								},
+								{
 									"id": "set-y",
 									"objectClass": "PlayerBox",
-									"sid": 579511643608022,
+									"sid": 567674203872435,
 									"parameters": {
 										"y": "Self.Y-5"
 									}
@@ -545,7 +868,7 @@
 								{
 									"id": "set-enabled",
 									"objectClass": "PlayerBox",
-									"sid": 656775464689377,
+									"sid": 185332007870102,
 									"behaviorType": "Platform",
 									"parameters": {
 										"state": "disabled"
@@ -554,7 +877,7 @@
 								{
 									"id": "move-to-position",
 									"objectClass": "PlayerBox",
-									"sid": 572287057701949,
+									"sid": 130767177589805,
 									"behaviorType": "MoveTo",
 									"parameters": {
 										"x": "Self.X-350",
@@ -563,16 +886,118 @@
 									}
 								},
 								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 605277226968965,
+									"parameters": {
+										"variable": "CooldownTimer",
+										"value": "0"
+									}
+								},
+								{
 									"id": "set-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 169987358685617,
+									"sid": 730451279707616,
 									"parameters": {
 										"variable": "TouchinDaGrass",
 										"value": "false"
 									}
 								}
 							],
-							"sid": 193626875522856
+							"sid": 103394572052092
+						},
+						{
+							"eventType": "comment",
+							"text": "Left"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 713457595295924,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 585313853681871,
+									"parameters": {
+										"variable": "TouchinDaGrass"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PlayerBox",
+									"sid": 477421764042723,
+									"parameters": {
+										"instance-variable": "FacingRight",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-rate",
+									"objectClass": "Particles3",
+									"sid": 692086987992729,
+									"parameters": {
+										"rate": "20"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "PlayerBox",
+									"sid": 287140252489269,
+									"parameters": {
+										"y": "Self.Y-5"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "PlayerBox",
+									"sid": 419654668106556,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "move-to-position",
+									"objectClass": "PlayerBox",
+									"sid": 167866493290551,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "Self.X+350",
+										"y": "Self.Y",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 376627297913285,
+									"parameters": {
+										"variable": "CooldownTimer",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 234648898134593,
+									"parameters": {
+										"variable": "TouchinDaGrass",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 461916537669975
 						},
 						{
 							"eventType": "block",
@@ -623,6 +1048,22 @@
 									"parameters": {
 										"vector-y": "0"
 									}
+								},
+								{
+									"id": "set-rate",
+									"objectClass": "Particles3",
+									"sid": 425736116688652,
+									"parameters": {
+										"rate": "0"
+									}
+								},
+								{
+									"id": "set-rate",
+									"objectClass": "Particles5",
+									"sid": 669765271450367,
+									"parameters": {
+										"rate": "0"
+									}
 								}
 							],
 							"sid": 306646227206637,
@@ -665,6 +1106,949 @@
 						0,
 						1
 					]
+				},
+				{
+					"eventType": "group",
+					"disabled": true,
+					"title": "Diagonal",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "UP"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 113723679334555,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 237441011937392,
+									"parameters": {
+										"variable": "TouchinDaGrass"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 426844005450539,
+									"parameters": {
+										"variable": "UPorDOWN",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PlayerBox",
+									"sid": 639481520041174,
+									"parameters": {
+										"instance-variable": "FacingRight",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "PlayerBox",
+									"sid": 210765999159964,
+									"parameters": {
+										"y": "Self.Y-5"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "PlayerBox",
+									"sid": 550024863614917,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "move-to-position",
+									"objectClass": "PlayerBox",
+									"sid": 819904819105890,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "Self.X",
+										"y": "Self.Y-350",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 300843017082737,
+									"parameters": {
+										"variable": "TouchinDaGrass",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 175203894774454,
+							"disabled": true
+						},
+						{
+							"eventType": "comment",
+							"text": "Down"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 599004959450458,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 446025840200131,
+									"parameters": {
+										"variable": "TouchinDaGrass"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PlayerBox",
+									"sid": 742019885376401,
+									"parameters": {
+										"instance-variable": "FacingRight",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 719501006358686,
+									"parameters": {
+										"variable": "UPorDOWN",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "PlayerBox",
+									"sid": 996304296941331,
+									"parameters": {
+										"y": "Self.Y-5"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "PlayerBox",
+									"sid": 541415548318616,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "move-to-position",
+									"objectClass": "PlayerBox",
+									"sid": 525295863014963,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "Self.X",
+										"y": "Self.Y+350",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 860438411078504,
+									"parameters": {
+										"variable": "TouchinDaGrass",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 165477065021506,
+							"disabled": true
+						},
+						{
+							"eventType": "comment",
+							"text": "UpLeft"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 165153781734305,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 823749872503434,
+									"parameters": {
+										"variable": "TouchinDaGrass"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PlayerBox",
+									"sid": 435545295471478,
+									"parameters": {
+										"instance-variable": "FacingRight",
+										"comparison": 0,
+										"value": "2"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 485477393172645,
+									"parameters": {
+										"variable": "UPorDOWN",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "PlayerBox",
+									"sid": 206036688197237,
+									"parameters": {
+										"y": "Self.Y-5"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "PlayerBox",
+									"sid": 900940292443169,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "move-to-position",
+									"objectClass": "PlayerBox",
+									"sid": 836201254302345,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "Self.X+350",
+										"y": "Self.Y-350",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 436465993534271,
+									"parameters": {
+										"variable": "TouchinDaGrass",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 301554049482179,
+							"disabled": true
+						},
+						{
+							"eventType": "comment",
+							"text": "UpRight"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 197643665745692,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 312615670269638,
+									"parameters": {
+										"variable": "TouchinDaGrass"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PlayerBox",
+									"sid": 952377544402319,
+									"parameters": {
+										"instance-variable": "FacingRight",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 140754538672528,
+									"parameters": {
+										"variable": "UPorDOWN",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "PlayerBox",
+									"sid": 864961404067504,
+									"parameters": {
+										"y": "Self.Y-5"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "PlayerBox",
+									"sid": 603783984584597,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "move-to-position",
+									"objectClass": "PlayerBox",
+									"sid": 367002200805743,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "Self.X-350",
+										"y": "Self.Y-350",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 681044457589139,
+									"parameters": {
+										"variable": "TouchinDaGrass",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 613871491605142,
+							"disabled": true
+						},
+						{
+							"eventType": "comment",
+							"text": "DownLeft"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 593252429241710,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 265919768461427,
+									"parameters": {
+										"variable": "TouchinDaGrass"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 745355457983270,
+									"parameters": {
+										"variable": "UPorDOWN",
+										"comparison": 0,
+										"value": "2"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PlayerBox",
+									"sid": 185579091630500,
+									"parameters": {
+										"instance-variable": "FacingRight",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "PlayerBox",
+									"sid": 473038369558874,
+									"parameters": {
+										"y": "Self.Y-5"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "PlayerBox",
+									"sid": 199223704642061,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "move-to-position",
+									"objectClass": "PlayerBox",
+									"sid": 606188782254929,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "Self.X+350",
+										"y": "Self.Y+350",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 217367770662315,
+									"parameters": {
+										"variable": "TouchinDaGrass",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 463674155739533,
+							"disabled": true
+						},
+						{
+							"eventType": "comment",
+							"text": "DownRight"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 669339356274669,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 437826108228708,
+									"parameters": {
+										"variable": "TouchinDaGrass"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 658680902344538,
+									"parameters": {
+										"variable": "UPorDOWN",
+										"comparison": 0,
+										"value": "2"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PlayerBox",
+									"sid": 445074480354323,
+									"parameters": {
+										"instance-variable": "FacingRight",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "PlayerBox",
+									"sid": 338660610856834,
+									"parameters": {
+										"y": "Self.Y-5"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "PlayerBox",
+									"sid": 593710257322444,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "move-to-position",
+									"objectClass": "PlayerBox",
+									"sid": 166662354055807,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"x": "Self.X-350",
+										"y": "Self.Y+350",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 244085841350506,
+									"parameters": {
+										"variable": "TouchinDaGrass",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 712579696856318,
+							"disabled": true
+						}
+					],
+					"sid": 451554565463099
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "WallJump",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 301292054589871,
+									"parameters": {
+										"key": 32
+									}
+								},
+								{
+									"id": "is-on-floor",
+									"objectClass": "PlayerBox",
+									"sid": 217495837004208,
+									"behaviorType": "Platform",
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "PlayerBox",
+									"sid": 639607127607347,
+									"parameters": {
+										"instance-variable": "Walljumpcooldown"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "PlayerBox",
+									"sid": 849191875630912,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "330"
+									}
+								}
+							],
+							"sid": 303701969225127
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-floor",
+									"objectClass": "PlayerBox",
+									"sid": 217208958064858,
+									"behaviorType": "Platform"
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 420800630002056,
+									"parameters": {
+										"key": 16
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "PlayerBox",
+									"sid": 124639919093325,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "330"
+									}
+								}
+							],
+							"sid": 330227743967100
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 980308750917603,
+									"parameters": {
+										"key": 32
+									}
+								},
+								{
+									"id": "is-on-floor",
+									"objectClass": "PlayerBox",
+									"sid": 747502483884727,
+									"behaviorType": "Platform",
+									"isInverted": true
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 279393096055404,
+									"parameters": {
+										"variable": "CooldownTimer",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 214905829662576,
+									"parameters": {
+										"variable": "CooldownTimer",
+										"value": "0.85"
+									}
+								}
+							],
+							"sid": 808925932117755,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-by-wall",
+											"objectClass": "PlayerBox",
+											"sid": 774737954956336,
+											"behaviorType": "Platform",
+											"parameters": {
+												"side": "left"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-vector-y",
+											"objectClass": "PlayerBox",
+											"sid": 528290234163240,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-y": "-700"
+											}
+										},
+										{
+											"id": "set-vector-x",
+											"objectClass": "PlayerBox",
+											"sid": 206935334441124,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-x": "100000"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 149293780326191,
+											"parameters": {
+												"variable": "IsWallLeft",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 271843111512861
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-by-wall",
+											"objectClass": "PlayerBox",
+											"sid": 575505182406444,
+											"behaviorType": "Platform",
+											"parameters": {
+												"side": "right"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-vector-y",
+											"objectClass": "PlayerBox",
+											"sid": 575223418440460,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-y": "-700"
+											}
+										},
+										{
+											"id": "set-vector-x",
+											"objectClass": "PlayerBox",
+											"sid": 683917567561797,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-x": "-100000"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 161642135771576,
+											"parameters": {
+												"variable": "IsWallLeft",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 232536835103564
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-by-wall",
+									"objectClass": "PlayerBox",
+									"sid": 923176517036731,
+									"behaviorType": "Platform",
+									"parameters": {
+										"side": "left"
+									}
+								},
+								{
+									"id": "is-by-wall",
+									"objectClass": "PlayerBox",
+									"sid": 450606564911980,
+									"behaviorType": "Platform",
+									"parameters": {
+										"side": "right"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-double-jump",
+									"objectClass": "PlayerBox",
+									"sid": 684329428802073,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 947338549022952,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 405668924196243
+								}
+							],
+							"actions": [
+								{
+									"id": "set-double-jump",
+									"objectClass": "PlayerBox",
+									"sid": 752183685552060,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 188099735550726
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 308545908280477,
+									"parameters": {
+										"variable": "CooldownTimer",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 586691879674883,
+									"parameters": {
+										"variable": "CooldownTimer",
+										"value": "1*dt"
+									}
+								}
+							],
+							"sid": 611161507123829
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 897223876116664,
+									"parameters": {
+										"variable": "CooldownTimer",
+										"comparison": 5,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 745424589997513,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-by-wall",
+											"objectClass": "PlayerBox",
+											"sid": 353057721729198,
+											"behaviorType": "Platform",
+											"parameters": {
+												"side": "left"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 869187069473187,
+											"parameters": {
+												"variable": "IsWallLeft"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 654994958326584,
+											"parameters": {
+												"variable": "CooldownTimer",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 776804361004703
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-by-wall",
+											"objectClass": "PlayerBox",
+											"sid": 266704974732509,
+											"behaviorType": "Platform",
+											"parameters": {
+												"side": "right"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 614127582911828,
+											"parameters": {
+												"variable": "IsWallLeft"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 781271724524503,
+											"parameters": {
+												"variable": "CooldownTimer",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 491851352095009
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-floor",
+									"objectClass": "PlayerBox",
+									"sid": 692635076056431,
+									"behaviorType": "Platform"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 405779210338480,
+									"parameters": {
+										"variable": "CooldownTimer",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 820175790107140
+						}
+					],
+					"sid": 261656654775043
 				}
 			],
 			"sid": 997692790816071,
@@ -680,70 +2064,6 @@
 				0,
 				1
 			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 202842143998124,
-					"parameters": {
-						"key": 32
-					}
-				},
-				{
-					"id": "is-on-floor",
-					"objectClass": "PlayerBox",
-					"sid": 387606949535123,
-					"behaviorType": "Platform",
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-max-speed",
-					"objectClass": "PlayerBox",
-					"sid": 290666388792560,
-					"behaviorType": "Platform",
-					"parameters": {
-						"max-speed": "330"
-					}
-				}
-			],
-			"sid": 175656628471685
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-on-floor",
-					"objectClass": "PlayerBox",
-					"sid": 413455928286859,
-					"behaviorType": "Platform"
-				},
-				{
-					"id": "key-is-down",
-					"objectClass": "Keyboard",
-					"sid": 155468544667495,
-					"parameters": {
-						"key": 16
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-max-speed",
-					"objectClass": "PlayerBox",
-					"sid": 232407583186813,
-					"behaviorType": "Platform",
-					"parameters": {
-						"max-speed": "330"
-					}
-				}
-			],
-			"sid": 982888962459700
 		}
 	],
 	"sid": 491438502218520

@@ -20,10 +20,17 @@
 		},
 		{
 			"name": "FacingRight",
-			"type": "boolean",
+			"type": "number",
 			"desc": "",
 			"show": true,
 			"sid": 962134061041202
+		},
+		{
+			"name": "Walljumpcooldown",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 738874902249827
 		}
 	],
 	"behaviorTypes": [
